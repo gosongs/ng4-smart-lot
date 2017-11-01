@@ -5,8 +5,8 @@
 }
 
 .header {
-  -webkit-box-shadow: 4px 4px 40px 0 rgba(0, 0, 0, .05);
-  box-shadow: 4px 4px 40px 0 rgba(0, 0, 0, .05);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14,9 +14,9 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  height: 47px;
+  height: 64px;
   background-color: #fff;
-  z-index: 999;
+  z-index: 8;
   &-left {
 
   }
@@ -28,12 +28,11 @@
   }
   &-user {
     display: inline-block;
-    height: 47px;
-    line-height: 47px;
+    height: 64px;
+    line-height: 64px;
     text-align: center;
     padding: 0 10px;
     cursor: pointer;
-    margin-left: 10px;
     @extend .trans;
     i {
       font-size: 14px;
@@ -49,9 +48,9 @@
 }
 
 .btn {
-  width: 47px;
-  height: 47px;
-  line-height: 47px;
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
   text-align: center;
   font-size: 18px;
   cursor: pointer;

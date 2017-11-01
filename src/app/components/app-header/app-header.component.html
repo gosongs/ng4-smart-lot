@@ -6,17 +6,21 @@
   </div>
   <div class="header-right">
     <div class="btn">
-      <i class="anticon anticon-cloud"></i>
+      <i class="anticon anticon-search"></i>
     </div>
     <div class="btn">
-      <i class="anticon anticon-meh"></i>
+      <nz-badge [nzCount]="5">
+        <ng-template #content>
+          <i class="anticon anticon-bell"></i>
+        </ng-template>
+      </nz-badge>
     </div>
 
 
     <nz-dropdown nzPlacement="bottomRight">
       <span class="header-user" nz-dropdown>
-        <i class="anticon anticon-user"></i>
-        <span>超级小远子</span>
+        <nz-avatar style="vertical-align: middle;" nzIcon="user"></nz-avatar>
+        <span>管理员001</span>
       </span>
       <ul nz-menu>
         <li nz-menu-item>

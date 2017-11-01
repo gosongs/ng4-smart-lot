@@ -8,9 +8,9 @@
   -webkit-transition: all .3s ease-out;
   -o-transition: all .3s ease-out;
   transition: all .3s ease-out;
-  -webkit-box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, .01);
-  box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, .01);
+  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   color: #999;
+  z-index: 10;
   &.mini {
     width: 64px;
     .aside-tool {
@@ -46,26 +46,32 @@
   }
   &-logo {
     text-align: center;
-    height: 40px;
-    line-height: 40px;
+    height: 64px;
+    line-height: 64px;
     cursor: pointer;
-    margin: 28px 0;
     overflow: hidden;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
     img {
-      width: 40px;
-      margin-right: 8px;
+      display: inline-block;
+      vertical-align: middle;
+      height: 32px;
     }
     span {
-      vertical-align: text-bottom;
-      font-size: 16px;
-      text-transform: uppercase;
+      color: #fff;
       display: inline-block;
+      vertical-align: middle;
+      font-size: 18px;
+      margin-left: 12px;
+      font-weight: 300;
     }
   }
   &-menu {
     height: calc(100vh - 144px);
     overflow-x: hidden;
     border-right: none;
+    margin: 16px 0;
   }
   &-tool {
     width: 100%;

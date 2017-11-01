@@ -1,0 +1,21 @@
+.links {
+  margin-bottom: 8px;
+  a {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.45);
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+    &:hover {
+      color: rgba(0, 0, 0, 0.65);
+    }
+  }
+}
+
+.copyright {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+}
