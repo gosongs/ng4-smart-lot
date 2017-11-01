@@ -1,0 +1,47 @@
+<div class="aside" [ngClass]="{'mini': miniNav}">
+  <!--<div class="aside-toggle" (click)="toggle()">-->
+    <!--<i [ngClass]="{'anticon':1, 'anticon-menu-fold': miniNav, 'anticon-menu-unfold': !miniNav}"></i>-->
+  <!--</div>-->
+
+  <div class="aside-logo">
+    <img src="assets/images/logo.png" alt="">
+    <span *ngIf="!miniNav">Smart lot</span>
+  </div>
+
+  <div class="aside-menu">
+    <ul nz-menu [nzMode]="'inline'" nzTheme="dark" [nzInlineCollapsed]="miniNav">
+      <ng-template ngFor let-nav [ngForOf]="navigation">
+
+        <!--有子目录-->
+        <ng-container *ngIf="nav.hasChild;else no_child">
+          <li nz-submenu>
+            <span title><i [class]="nav.icon"></i>{{miniNav ? null : nav.name}}</span>
+            <ul>
+              <ng-template ngFor let-child [ngForOf]="nav.children">
+                <li nz-menu-item><i [class]="child.icon"></i>{{child.name}}</li>
+              </ng-template>
+            </ul>
+          </li>
+        </ng-container>
+
+        <!--无子目录-->
+        <ng-template #no_child>
+          <li nz-menu-item>
+            <span title><i [class]="nav.icon"></i>{{miniNav ? null : nav.name}}</span>
+          </li>
+        </ng-template>
+      </ng-template>
+    </ul>
+  </div>
+
+  <div class="aside-tool">
+    <span>
+      <i class="anticon anticon-bulb"></i>
+      Switch Theme
+    </span>
+    <nz-switch [(ngModel)]="theme">
+      <span checked>Dark</span>
+      <span unchecked>Light</span>
+    </nz-switch>
+  </div>
+</div>

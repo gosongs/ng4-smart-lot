@@ -1,0 +1,89 @@
+.aside {
+  width: 240px;
+  background: #404040;
+  position: absolute;
+  overflow: visible;
+  padding-bottom: 24px;
+  height: 100vh;
+  -webkit-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  -webkit-box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, .01);
+  box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, .01);
+  color: #999;
+  &.mini {
+    width: 64px;
+    .aside-tool {
+      display: none;
+    }
+    .aside-logo {
+      img {
+        width: 35px;
+        margin: 6px 7px;
+      }
+    }
+  }
+  &-toggle {
+    position: absolute;
+    right: -47px;
+    top: 0;
+    width: 47px;
+    height: 47px;
+    line-height: 47px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    -webkit-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    &:hover {
+      color: #108ee9;
+      background-color: rgba(16, 142, 233, .15);
+    }
+    i {
+      font-size: 18px;
+    }
+  }
+  &-logo {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    margin: 28px 0;
+    overflow: hidden;
+    img {
+      width: 40px;
+      margin-right: 8px;
+    }
+    span {
+      vertical-align: text-bottom;
+      font-size: 16px;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+  }
+  &-menu {
+    height: calc(100vh - 144px);
+    overflow-x: hidden;
+    border-right: none;
+  }
+  &-tool {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 48px;
+    background-color: #494949;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 16px 0 24px;
+    overflow: hidden;
+    z-index: 1000;
+  }
+}
