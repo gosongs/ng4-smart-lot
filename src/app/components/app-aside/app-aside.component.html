@@ -14,7 +14,7 @@
 
         <!--有子目录-->
         <ng-container *ngIf="nav.hasChild;else no_child">
-          <li nz-submenu>
+          <li nz-submenu [nzOpen]="true">
             <span title><i [class]="nav.icon"></i>{{miniNav ? null : nav.name}}</span>
             <ul>
               <ng-template ngFor let-child [ngForOf]="nav.children">
