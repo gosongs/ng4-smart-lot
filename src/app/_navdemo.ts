@@ -1,6 +1,6 @@
 export const navigation = [
   {
-    name: '控制台',
+    name: 'Dashboard',
     url: '/dashboard',
     icon: 'anticon anticon-appstore-o',
     badge: {
@@ -9,53 +9,53 @@ export const navigation = [
     }
   },
   {
-    name: '设备管理',
+    name: 'Machine',
     url: '/machine',
     icon: 'anticon anticon-hdd',
     children: [
       {
-        name: '设备列表',
+        name: 'List',
         url: '/machine/list',
         icon: 'anticon anticon-file-text'
       },
       {
-        name: '设备详情',
+        name: 'Detail',
         url: '/machine/detail',
         icon: 'anticon anticon-search'
       }
     ]
   },
   {
-    name: '订单管理',
+    name: 'Order',
     url: '/order',
     icon: 'anticon anticon-file',
     children: [
       {
-        name: '账单查询',
+        name: 'Search',
         url: '/order/search',
         icon: 'anticon anticon-search'
       },
       {
-        name: '账单列表',
+        name: 'List',
         url: '/order/list',
         icon: 'anticon anticon-file-text'
       }
     ]
   },
   {
-    name: '资金管理',
+    name: 'Fund',
     url: '/fund',
     icon: 'anticon anticon-pay-circle-o',
     children: [
       {
-        name: '资金',
+        name: 'Saerch',
         url: '/order/search',
         icon: 'anticon anticon-search'
       }
     ]
   },
   {
-    name: '统计分析',
+    name: 'Analysis',
     url: '/analysis',
     icon: 'anticon anticon-area-chart'
   }

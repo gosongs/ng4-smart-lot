@@ -1,6 +1,6 @@
 <div class="aside" [ngClass]="{'mini': miniNav}">
   <!--<div class="aside-toggle" (click)="toggle()">-->
-    <!--<i [ngClass]="{'anticon':1, 'anticon-menu-fold': miniNav, 'anticon-menu-unfold': !miniNav}"></i>-->
+  <!--<i [ngClass]="{'anticon':1, 'anticon-menu-fold': miniNav, 'anticon-menu-unfold': !miniNav}"></i>-->
   <!--</div>-->
 
   <div class="aside-logo">
@@ -18,7 +18,11 @@
             <span title><i [class]="nav.icon"></i>{{miniNav ? null : nav.name}}</span>
             <ul>
               <ng-template ngFor let-child [ngForOf]="nav.children">
-                <li nz-menu-item><i [class]="child.icon"></i>{{child.name}}</li>
+                <li nz-menu-item
+                    routerLinkActive="ant-menu-item-selected"
+                    [routerLink]="child.url">
+                  <i [class]="child.icon"></i>{{child.name}}
+                </li>
               </ng-template>
             </ul>
           </li>
@@ -26,7 +30,7 @@
 
         <!--无子目录-->
         <ng-template #no_child>
-          <li nz-menu-item>
+          <li nz-menu-item [routerLink]="nav.url" routerLinkActive="ant-menu-item-selected">
             <span title><i [class]="nav.icon"></i>{{miniNav ? null : nav.name}}</span>
           </li>
         </ng-template>

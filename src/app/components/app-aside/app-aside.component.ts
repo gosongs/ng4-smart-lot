@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { navigation } from '../../_nav';
+// import { navigation } from '../../_nav';
+import { navigation } from '../../_navdemo';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aside',
@@ -10,8 +12,9 @@ export class AppAsideComponent implements OnInit {
   theme = true;
   navigation: any[];
   miniNav = false;
+  curRouter: string;
 
-  constructor() {
+  constructor(private router: Router) {
     navigation.map(item => {
       if (item['children'] && item['children'].length) {
         item['hasChild'] = true;
@@ -20,6 +23,7 @@ export class AppAsideComponent implements OnInit {
       }
     });
     this.navigation = navigation;
+    this.curRouter = this.router.url;
   }
 
   ngOnInit() {

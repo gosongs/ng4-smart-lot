@@ -1,5 +1,5 @@
 body {
-  font-size: 14px!important;
+  font-size: 14px !important;
   background-color: #f8f8f8;
 }
 
@@ -10,4 +10,148 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px
+}
+
+*:focus {
+  outline: none;
+}
+
+.mt24 {
+  margin-top: 24px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+// 登录和注册
+.account {
+  height: 100%;
+  &-container {
+    background: #f0f2f5;
+    background-image: url('https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg');
+    width: 100%;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    padding: 110px 0 144px 0;
+    position: relative;
+  }
+  &-top {
+    text-align: center;
+    &-header {
+      height: 44px;
+      line-height: 44px;
+      &-logo {
+        height: 44px;
+        vertical-align: top;
+        margin-right: 16px;
+      }
+      &-title {
+        font-size: 33px;
+        color: rgba(0, 0, 0, 0.85);
+        font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        position: relative;
+        top: 2px;
+      }
+    }
+    &-desc {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.45);
+      margin-top: 12px;
+      margin-bottom: 40px;
+    }
+  }
+  &-form {
+    max-width: 372px;
+    margin: 0 auto;
+  }
+  &-foot {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 0 16px;
+    margin: 48px 0 24px 0;
+    text-align: center;
+    &-links {
+      margin-bottom: 8px;
+      a {
+        color: rgba(0, 0, 0, 0.45);
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s;
+        &:not(:last-child) {
+          margin-right: 40px;
+        }
+      }
+    }
+    &-copyright {
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 14px;
+    }
+  }
+}
+
+// 错误页面
+.exception {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: 500px;
+  height: 80%;
+  &-img {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 62.5%;
+    flex: 0 0 62.5%;
+    width: 62.5%;
+    padding-right: 152px;
+    zoom: 1;
+    .e {
+      height: 360px;
+      width: 100%;
+      max-width: 430px;
+      float: right;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 100% 100%;
+    }
+    &-e403 {
+      @extend .e;
+      background-image: url("./assets/images/403.svg");
+    }
+    &-e404 {
+      @extend .e;
+      background-image: url("./assets/images/404.svg");
+    }
+    &-e500 {
+      @extend .e;
+      background-image: url("./assets/images/500.svg");
+    }
+  }
+  &-content {
+    -webkit-box-flex: 1;
+    -ms-flex: auto;
+    flex: auto;
+    h1 {
+      color: #434e59;
+      font-size: 72px;
+      font-weight: 600;
+      line-height: 72px;
+      margin-bottom: 24px;
+    }
+  }
+  &-desc {
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 16px;
+  }
+  &-actions {
+
+  }
 }

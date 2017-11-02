@@ -11,6 +11,7 @@ import { AppAsideComponent } from './components/app-aside';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
 import { AppBreadcrumbComponent } from './components/app-breadcrumb/app-breadcrumb.component';
+import { SimpleComponent } from './layouts/simple/simple.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AppBreadcrumbComponent } from './components/app-breadcrumb/app-breadcru
     AppAsideComponent,
     AppHeaderComponent,
     AppFooterComponent,
-    AppBreadcrumbComponent
+    AppBreadcrumbComponent,
+    SimpleComponent
   ],
   imports: [
     BrowserModule,

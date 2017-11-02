@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ListComponent } from './list/list.component';
+import { DetailComponent } from './detail/detail.component';
+import { MachineRoutingModule } from './machine-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MachineRoutingModule
   ],
-  declarations: []
+  declarations: [ListComponent, DetailComponent]
 })
-export class MachineModule { }
+export class MachineModule {
+}
