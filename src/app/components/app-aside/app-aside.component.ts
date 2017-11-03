@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 // import { navigation } from '../../_nav';
 import { navigation } from '../../_navdemo';
 import { Router } from '@angular/router';
@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 export class AppAsideComponent implements OnInit {
   theme = true;
   navigation: any[];
-  miniNav = false;
   curRouter: string;
+  @Input() miniNav: boolean;
 
   constructor(private router: Router) {
     navigation.map(item => {

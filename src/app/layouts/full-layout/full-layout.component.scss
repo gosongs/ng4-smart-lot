@@ -11,6 +11,9 @@
   -webkit-transition: all .3s ease-out;
   -o-transition: all .3s ease-out;
   transition: all .3s ease-out;
+  &.mini {
+    margin-left: 64px;
+  }
 }
 
 .breadcrumb {

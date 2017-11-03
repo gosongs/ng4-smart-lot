@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./full-layout.component.scss']
 })
 export class FullLayoutComponent implements OnInit {
+  public miniNav = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  onToggle(miniNav: boolean) {
+    this.miniNav = miniNav;
+  }
 }

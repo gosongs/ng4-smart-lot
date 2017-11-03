@@ -1,10 +1,10 @@
 <div class="wrapper">
   <aside class="aside">
-    <app-aside></app-aside>
+    <app-aside [miniNav]="miniNav"></app-aside>
   </aside>
-  <div class="body">
+  <div class="body" [ngClass]="{'mini': miniNav}">
     <header class="header">
-      <app-header></app-header>
+      <app-header (onToggle)="onToggle($event)"></app-header>
     </header>
 
     <div class="breadcrumb">

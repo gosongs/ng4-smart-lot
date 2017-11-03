@@ -1,7 +1,7 @@
 <div class="header">
   <div class="header-left">
-    <div class="btn">
-      <i class="anticon anticon-menu-fold"></i>
+    <div class="btn" (click)="toggle()">
+      <i class="anticon" [ngClass]="{'anticon-menu-fold': !miniNav, 'anticon-menu-unfold': miniNav}"></i>
     </div>
   </div>
   <div class="header-right">
