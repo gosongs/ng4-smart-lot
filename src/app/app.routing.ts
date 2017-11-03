@@ -12,30 +12,51 @@ const routes: Routes = [
   {
     path: '',
     component: FullLayoutComponent,
+    data: {
+      title: 'Home'
+    },
     children: [
       {
         path: 'dashboard',
-        loadChildren: './pages/dashboard/dashboard.module#DashboardModule'
+        loadChildren: './pages/dashboard/dashboard.module#DashboardModule',
+        data: {
+          title: 'Dashboard'
+        }
       },
       {
         path: 'machine',
-        loadChildren: './pages/machine/machine.module#MachineModule'
+        loadChildren: './pages/machine/machine.module#MachineModule',
+        data: {
+          title: 'Machine'
+        }
       },
       {
         path: 'order',
-        loadChildren: './pages/order/order.module#OrderModule'
+        loadChildren: './pages/order/order.module#OrderModule',
+        data: {
+          title: 'Order'
+        }
       },
       {
         path: 'setting',
-        loadChildren: './pages/setting/setting.module#SettingModule'
+        loadChildren: './pages/setting/setting.module#SettingModule',
+        data: {
+          title: 'Setting'
+        }
       },
       {
         path: 'user',
-        loadChildren: './pages/user/user.module#UserModule'
+        loadChildren: './pages/user/user.module#UserModule',
+        data: {
+          title: 'User'
+        }
       },
       {
         path: 'exception',
-        loadChildren: './pages/exception/exception.module#ExceptionModule'
+        loadChildren: './pages/exception/exception.module#ExceptionModule',
+        data: {
+          title: 'Exception'
+        }
       }
     ]
   },

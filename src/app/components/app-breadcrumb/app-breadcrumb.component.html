@@ -1,14 +1,11 @@
-<nz-breadcrumb>
-  <nz-breadcrumb-item>
-    Home
-  </nz-breadcrumb-item>
-  <nz-breadcrumb-item>
-    <a href="">Application Center</a>
-  </nz-breadcrumb-item>
-  <nz-breadcrumb-item>
-    <a href="">Application List</a>
-  </nz-breadcrumb-item>
-  <nz-breadcrumb-item>
-    An Application
-  </nz-breadcrumb-item>
-</nz-breadcrumb>
+<div class="page-header">
+  <div class="page-breadcrumb">
+    <nz-breadcrumb style="margin:12px 0;">
+      <nz-breadcrumb-item *ngFor="let breadcrumb of breadcrumbs" [routerLink]="[breadcrumb.url]">{{breadcrumb.name}}
+      </nz-breadcrumb-item>
+    </nz-breadcrumb>
+  </div>
+  <div class="page-title">
+    <h1>{{title}}</h1>
+  </div>
+</div>
