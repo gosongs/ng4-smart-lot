@@ -1,3 +1,77 @@
-<p>
-  list works!
-</p>
+<nz-card [nzLoading]="false">
+  <ng-template #body>
+    <!-- 搜索条件 -->
+    <div class="list-search">
+      <form nz-form [formGroup]="validateForm" class="ant-advanced-search-form">
+        <div nz-row [nzGutter]="40">
+          <div nz-col [nzSpan]="8" *ngFor="let control of controlArray" [style.display]="control.show?'block':'none'">
+            <div nz-form-item nz-row>
+              <div nz-form-label nz-col [nzSpan]="5">
+                <label [attr.for]="'field'+control.index">Field {{control.index}}</label>
+              </div>
+              <div nz-form-control nz-col [nzSpan]="19">
+                <nz-input [nzSize]="'large'" [nzPlaceHolder]="'placeholder'" [formControlName]="'field'+control.index"
+                          [nzId]="'field'+control.index"></nz-input>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col [nzSpan]="24" style="text-align: right;">
+            <button nz-button [nzType]="'primary'">Search</button>
+            <button nz-button (click)="resetForm()">Clear</button>
+            <a style="margin-left:8px;font-size:12px;" (click)="toggleCollapse()">
+              Collapse
+              <i class="anticon" [class.anticon-down]="isCollapse" [class.anticon-up]="!isCollapse"></i>
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- 操作 -->
+    <div class="list-actions">
+      <button nz-button [nzType]="'primary'">
+        <i class="anticon anticon-plus"></i><span>Search</span>
+      </button>
+    </div>
+
+    <!-- 搜索结果 -->
+    <div class="list-result">
+      <nz-table #nzTable [nzDataSource]="data" [nzPageSize]="10">
+        <thead nz-thead>
+        <tr>
+          <th nz-th [nzExpand]="true"></th>
+          <th nz-th><span>Name</span></th>
+          <th nz-th><span>Age</span></th>
+          <th nz-th><span>Address</span></th>
+          <th nz-th><span>Action</span></th>
+        </tr>
+        </thead>
+        <tbody nz-tbody>
+        <ng-template ngFor let-data [ngForOf]="nzTable.data">
+          <tr nz-tbody-tr>
+            <td nz-td [nzExpand]="true">
+              <nz-row-expand-icon [(nzExpand)]="data.expand"></nz-row-expand-icon>
+            </td>
+            <td nz-td>{{data.name}}</td>
+            <td nz-td>{{data.age}}</td>
+            <td nz-td>{{data.address}}</td>
+            <td nz-td>
+            <span>
+              <a href="#">Delete</a>
+            </span>
+            </td>
+          </tr>
+          <tr nz-tbody-tr *ngIf="data.expand">
+            <td nz-td></td>
+            <td nz-td colspan="4">
+              {{data.description}}
+            </td>
+          </tr>
+        </ng-template>
+        </tbody>
+      </nz-table>
+    </div>
+  </ng-template>
+</nz-card>
