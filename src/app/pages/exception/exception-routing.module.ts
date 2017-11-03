@@ -7,15 +7,24 @@ import { E500Component } from './e500';
 const routes: Routes = [
   {
     path: '403',
-    component: E403Component
+    component: E403Component,
+    data: {
+      title: '403'
+    }
   },
   {
     path: '404',
-    component: E404Component
+    component: E404Component,
+    data: {
+      title: '404'
+    }
   },
   {
     path: '500',
-    component: E500Component
+    component: E500Component,
+    data: {
+      title: '500'
+    }
   }
 ];
 

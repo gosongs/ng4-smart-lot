@@ -5,7 +5,7 @@
   </div>
 
   <div class="aside-menu">
-    <ul nz-menu [nzMode]="'inline'" nzTheme="dark" [nzInlineCollapsed]="miniNav">
+    <ul nz-menu [nzMode]="'inline'" [nzTheme]="'dark'" [nzInlineCollapsed]="miniNav">
       <ng-template ngFor let-nav [ngForOf]="navigation">
 
         <!--有子目录-->
@@ -39,7 +39,7 @@
       <i class="anticon anticon-bulb"></i>
       Switch Theme
     </span>
-    <nz-switch [(ngModel)]="theme">
+    <nz-switch>
       <span checked>Dark</span>
       <span unchecked>Light</span>
     </nz-switch>

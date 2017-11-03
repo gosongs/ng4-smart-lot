@@ -6,11 +6,17 @@ import { DetailComponent } from './detail';
 const routes: Routes = [
   {
     path: 'list',
-    component: ListComponent
+    component: ListComponent,
+    data: {
+      title: 'List'
+    }
   },
   {
     path: 'detail',
-    component: DetailComponent
+    component: DetailComponent,
+    data: {
+      title: 'Detail'
+    }
   }
 ];
 

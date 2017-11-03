@@ -48,7 +48,7 @@ export const navigation = [
     icon: 'anticon anticon-pay-circle-o',
     children: [
       {
-        name: 'Saerch',
+        name: 'Search',
         url: '/order/search',
         icon: 'anticon anticon-search'
       }

@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./app-aside.component.scss']
 })
 export class AppAsideComponent implements OnInit {
-  theme = true;
   navigation: any[];
   curRouter: string;
   @Input() miniNav: boolean;
@@ -27,9 +26,5 @@ export class AppAsideComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  toggle() {
-    this.miniNav = !this.miniNav;
   }
 }
