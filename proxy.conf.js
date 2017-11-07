@@ -3,7 +3,7 @@ const PROXY_CONFIG = [
     context: [
       "/api"
     ],
-    target: "http://api.asnhealth.cn/api/v1/",
+    target: "http://api.asnhealth.cn",
     secure: false,
     logLevel: "debug",
     changeOrigin: true,

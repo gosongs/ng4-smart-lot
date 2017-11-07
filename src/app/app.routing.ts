@@ -13,49 +13,49 @@ const routes: Routes = [
     path: '',
     component: FullLayoutComponent,
     data: {
-      title: 'Home'
+      title: '首页'
     },
     children: [
       {
         path: 'dashboard',
         loadChildren: './pages/dashboard/dashboard.module#DashboardModule',
         data: {
-          title: 'Dashboard'
+          title: '控制台'
         }
       },
       {
         path: 'machine',
         loadChildren: './pages/machine/machine.module#MachineModule',
         data: {
-          title: 'Machine'
+          title: '设备管理'
         }
       },
       {
         path: 'order',
         loadChildren: './pages/order/order.module#OrderModule',
         data: {
-          title: 'Order'
+          title: '订单管理'
         }
       },
       {
         path: 'setting',
         loadChildren: './pages/setting/setting.module#SettingModule',
         data: {
-          title: 'Setting'
+          title: '系统设置'
         }
       },
       {
         path: 'user',
         loadChildren: './pages/user/user.module#UserModule',
         data: {
-          title: 'User'
+          title: '用户管理'
         }
       },
       {
         path: 'exception',
         loadChildren: './pages/exception/exception.module#ExceptionModule',
         data: {
-          title: 'Exception'
+          title: '异常'
         }
       }
     ]

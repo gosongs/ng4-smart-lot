@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-// import { navigation } from '../../_nav';
-import { navigation } from '../../_navdemo';
+import { navigation } from '../../_nav';
+// import { navigation } from '../../_navdemo';
 import { Router } from '@angular/router';
 
 @Component({

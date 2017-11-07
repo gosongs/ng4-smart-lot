@@ -8,14 +8,14 @@ const routes: Routes = [
     path: 'list',
     component: ListComponent,
     data: {
-      title: 'List'
+      title: '设备列表'
     }
   },
   {
     path: 'detail',
     component: DetailComponent,
     data: {
-      title: 'Detail'
+      title: '设备详情'
     }
   }
 ];

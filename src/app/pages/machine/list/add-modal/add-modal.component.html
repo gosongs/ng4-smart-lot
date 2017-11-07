@@ -1,0 +1,47 @@
+<nz-modal
+  [nzVisible]="visible"
+  [nzTitle]="'添加设备'"
+  [nzContent]="modalContent"
+  (nzOnCancel)="cancel($event)"
+  (nzOnOk)="ok($event)"
+  [nzConfirmLoading]="loading">
+  <ng-template #modalContent>
+    <form nz-form [formGroup]="addForm" (ngSubmit)="ok()">
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label nz-form-item-required>IMEI</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('imei')">
+          <nz-input [nzSize]="'large'" formControlName="imei" [nzId]="'imei'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('imei').dirty&&getFormControl('imei').hasError('imei')">The
+            IMEI 格式错误, 请重新输入!
+          </div>
+        </div>
+      </div>
+
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label nz-form-item-required>SIM卡号</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('sim')">
+          <nz-input [nzSize]="'large'" formControlName="sim" [nzId]="'sim'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('sim').dirty&&getFormControl('sim').hasError('sim')">The
+            SIM 卡号格式错误, 请重新输入!
+          </div>
+        </div>
+      </div>
+
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label nz-form-item-required>批次号</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('batch')">
+          <nz-input [nzSize]="'large'" formControlName="sim" [nzId]="'batch'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('batch').dirty&&getFormControl('batch').hasError('batch')">The
+            批次号格式错误, 请重新输入!
+          </div>
+        </div>
+      </div>
+    </form>
+  </ng-template>
+</nz-modal>

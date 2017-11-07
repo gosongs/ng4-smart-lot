@@ -11,7 +11,7 @@ import 'rxjs/add/operator/mergeMap';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  private name = 'Ant Design Admin';
+  private name = 'Smart lot';
 
   constructor(private title: Title, private activatedRoute: ActivatedRoute, private router: Router) {
 
