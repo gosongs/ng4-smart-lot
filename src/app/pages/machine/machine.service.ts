@@ -18,6 +18,11 @@ export class MachineService extends BaseHttpService {
       .then(res => res);
   }
 
+  machineDel(params: any) {
+    return this.post('api/v1/machine/delete', params)
+      .then(res => res);
+  }
+
   machineQR(params: any) {
     const { id } = params;
     return this.post('api/v1/machine/QRBase64', { id })

@@ -12,6 +12,7 @@ import { AppHeaderComponent } from './components/app-header/app-header.component
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
 import { AppBreadcrumbComponent } from './components/app-breadcrumb/app-breadcrumb.component';
 import { SimpleComponent } from './layouts/simple/simple.component';
+import { NzNotificationService } from 'ng-zorro-antd';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { SimpleComponent } from './layouts/simple/simple.component';
     NgZorroAntdModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [NzNotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

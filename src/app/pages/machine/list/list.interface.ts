@@ -2,6 +2,7 @@ export interface Filter {
   label: string;
   value: string;
   placeholder?: string;
+  status?: string;
 }
 
 export interface Data {

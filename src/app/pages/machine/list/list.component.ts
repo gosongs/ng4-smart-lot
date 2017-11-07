@@ -2,27 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Filter, Data } from './list.interface';
 import { MachineService } from '../machine.service';
-import { NzNotificationService } from 'ng-zorro-antd';
+import { NotifyService } from '../../../services/notify.service';
 import set = Reflect.set;
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  providers: [MachineService, NzNotificationService]
+  providers: [MachineService, NotifyService]
 })
 export class ListComponent implements OnInit {
   searchForm: FormGroup;
   filters: Filter[];
   data: Data[] = [];
   dataLoading = false;
-  page = 1;
-  pageSize = 10;
+  page = 1; // 页码
+  pageSize = 10; // 每页显示条数
   total = 100;
   addModalVisible = false;
+  editModalVisible = false;
   qrModalVisible = false;
   currentRow: any;
 
-  constructor(private fb: FormBuilder, private service: MachineService, private notify: NzNotificationService) {
+  constructor(private fb: FormBuilder, private service: MachineService, private notify: NotifyService) {
   }
 
   ngOnInit() {
@@ -67,11 +69,11 @@ export class ListComponent implements OnInit {
     }
     this.dataLoading = true;
     // 拼装数据, 发起请求
-    this.service.machineList({ ...this.searchForm.value, total: this.pageSize })
+    this.service.machineList({ ...this.searchForm.value, index: (this.page - 1) * this.pageSize, total: this.pageSize })
       .then(res => {
         this.dataLoading = false;
         if (res.code !== 1) {
-          this.notify.create('error', '出错了', res.msg);
+          this.notify.error(res.msg);
         } else {
           this.total = res.data.count;
           this.data = res.data.list;
@@ -82,15 +84,22 @@ export class ListComponent implements OnInit {
   showQR(row: any) {
     this.currentRow = row;
     this.qrModalVisible = true;
-    // this.service.machineQR(row)
-    //   .then(res => {
-    //     console.log(res);
-    //     if (res.code !== 1) {
-    //       this.notify.create('error', '出错了', res.msg);
-    //     } else {
-    //       // this.qr = res.data.count;
-    //       // this.data = res.data.list;
-    //     }
-    //   });
+  }
+
+  showEdit(row: any) {
+    this.currentRow = row;
+    this.editModalVisible = true;
+  }
+
+  delConfirm(row) {
+    const { id } = row;
+    this.service.machineDel({ id })
+      .then(res => {
+        if (res.code === 1) {
+          this.refreshData();
+        } else {
+          this.notify.error(res.msg);
+        }
+      });
   }
 }

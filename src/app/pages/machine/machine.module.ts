@@ -8,6 +8,7 @@ import { DetailComponent } from './detail/detail.component';
 import { MachineRoutingModule } from './machine-routing.module';
 import { AddModalComponent } from './list/add-modal/add-modal.component';
 import { QrModalComponent } from './list/qr-modal/qr-modal.component';
+import { EditModalComponent } from './list/edit-modal/edit-modal.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { QrModalComponent } from './list/qr-modal/qr-modal.component';
     NgZorroAntdModule,
     MachineRoutingModule
   ],
-  declarations: [ListComponent, DetailComponent, AddModalComponent, QrModalComponent]
+  declarations: [ListComponent, DetailComponent, AddModalComponent, QrModalComponent, EditModalComponent]
 })
 export class MachineModule {
 }
