@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { Filter, Data } from './list.interface';
+import { Filter, Data, Batch } from './list.interface';
 import { MachineService } from '../machine.service';
 import { NotifyService } from '../../../services/notify.service';
-import set = Reflect.set;
 
 @Component({
   selector: 'app-list',
@@ -12,55 +10,52 @@ import set = Reflect.set;
   providers: [MachineService, NotifyService]
 })
 export class ListComponent implements OnInit {
-  searchForm: FormGroup;
-  filters: Filter[];
-  data: Data[] = [];
-  dataLoading = false;
+  batchs: Batch[]; // 批次列表
+  filters: Filter; // 存储搜索参数
+  data: Data[] = []; // 表格数据
+  dataLoading = false; // 表格加载状态
   page = 1; // 页码
   pageSize = 10; // 每页显示条数
-  total = 100;
+  total = 100; // 数据总数
   addModalVisible = false;
   editModalVisible = false;
   qrModalVisible = false;
   currentRow: any;
 
-  constructor(private fb: FormBuilder, private service: MachineService, private notify: NotifyService) {
+  constructor(private service: MachineService, private notify: NotifyService) {
   }
 
   ngOnInit() {
-    this.searchForm = this.fb.group({});
-    this.filters = [
-      {
-        label: 'IMEI',
-        value: 'imei',
-        placeholder: '请输入IMEI'
-      },
-      {
-        label: '设备编号',
-        value: 'mid',
-        placeholder: '请输入设备编号'
-      },
-      {
-        label: 'SIM卡号',
-        value: 'sim',
-        placeholder: '请输入SIM卡号'
-      },
-      {
-        label: '批次号',
-        value: 'batch',
-        placeholder: '请输入批次号'
-      }
-    ];
+    this.batchs = [];
 
-    this.filters.map(item => {
-      this.searchForm.addControl(item.value, new FormControl());
-    });
-
-    this.refreshData();
+    this.resetSearch();
+    this.getBatchList(); // 获取批次号
+    this.refreshData(); // 刷新表格数据
   }
 
-  resetForm() {
-    this.searchForm.reset();
+  getBatchList() {
+    this.service.batchList()
+      .then(res => {
+        if (res.code === 1) {
+          this.batchs = res.data.list;
+        } else {
+          this.notify.error(res.msg);
+        }
+      })
+      .catch(error => {
+        this.notify.error(error);
+      });
+  }
+
+  // 重置表单
+  resetSearch() {
+    this.filters = {
+      imei: '',
+      mid: '',
+      sim: '',
+      batch: '',
+      status: ''
+    };
   }
 
   refreshData(reset = false) {
@@ -69,15 +64,18 @@ export class ListComponent implements OnInit {
     }
     this.dataLoading = true;
     // 拼装数据, 发起请求
-    this.service.machineList({ ...this.searchForm.value, index: (this.page - 1) * this.pageSize, total: this.pageSize })
+    this.service.machineList({ ...this.filters, index: (this.page - 1) * this.pageSize, total: this.pageSize })
       .then(res => {
         this.dataLoading = false;
-        if (res.code !== 1) {
-          this.notify.error(res.msg);
-        } else {
+        if (res.code === 1) {
           this.total = res.data.count;
           this.data = res.data.list;
+        } else {
+          this.notify.error(res.msg);
         }
+      })
+      .catch(error => {
+        this.notify.error(error);
       });
   }
 
@@ -100,6 +98,9 @@ export class ListComponent implements OnInit {
         } else {
           this.notify.error(res.msg);
         }
+      })
+      .catch(error => {
+        this.notify.error(error);
       });
   }
 }

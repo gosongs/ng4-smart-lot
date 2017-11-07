@@ -1,7 +1,8 @@
 export interface Filter {
-  label: string;
-  value: string;
-  placeholder?: string;
+  imei?: string;
+  mid?: string;
+  sim?: string;
+  batch?: string;
   status?: string;
 }
 
@@ -13,4 +14,9 @@ export interface Data {
   status?: string;
   batch?: string;
   updated?: string;
+}
+
+export interface Batch {
+  code: string;
+  name: string;
 }

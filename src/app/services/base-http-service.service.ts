@@ -17,7 +17,7 @@ export abstract class BaseHttpService {
     return Promise.reject(error.message || error);
   }
 
-  protected post(url: string, params: any): Promise<any> {
+  protected post(url: string, params?: any): Promise<any> {
     return this.http.post(this.host + url, params, { headers: this.headers })
       .toPromise()
       .then(response => {

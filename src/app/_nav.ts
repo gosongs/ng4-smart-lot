@@ -14,14 +14,19 @@ export const navigation = [
     icon: 'anticon anticon-hdd',
     children: [
       {
+        name: '设备查询',
+        url: '/machine/detail',
+        icon: 'anticon anticon-search'
+      },
+      {
         name: '设备列表',
         url: '/machine/list',
         icon: 'anticon anticon-file-text'
       },
       {
-        name: '设备详情',
-        url: '/machine/detail',
-        icon: 'anticon anticon-search'
+        name: '批次管理',
+        url: '/machine/batch',
+        icon: 'anticon anticon-switcher'
       }
     ]
   },
@@ -48,7 +53,7 @@ export const navigation = [
     icon: 'anticon anticon-pay-circle-o',
     children: [
       {
-        name: '资金',
+        name: '资金管理',
         url: '/order/search',
         icon: 'anticon anticon-search'
       }

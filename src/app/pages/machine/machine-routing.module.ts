@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './list';
+import { BatchComponent } from './batch';
 import { DetailComponent } from './detail';
 
 const routes: Routes = [
@@ -9,6 +10,13 @@ const routes: Routes = [
     component: ListComponent,
     data: {
       title: '设备列表'
+    }
+  },
+  {
+    path: 'batch',
+    component: BatchComponent,
+    data: {
+      title: '批次管理'
     }
   },
   {

@@ -8,24 +8,29 @@ export class MachineService extends BaseHttpService {
     super(injector);
   }
 
-  machineList(filter: any) {
+  machineList(filter) {
     return this.post('/api/v1/machine/getlist', filter)
       .then(res => res);
   }
 
-  machineAdd(params: any) {
+  machineAdd(params) {
     return this.post('api/v1/machine/add', params)
       .then(res => res);
   }
 
-  machineDel(params: any) {
+  machineDel(params) {
     return this.post('api/v1/machine/delete', params)
       .then(res => res);
   }
 
-  machineQR(params: any) {
+  machineQR(params) {
     const { id } = params;
     return this.post('api/v1/machine/QRBase64', { id })
+      .then(res => res);
+  }
+
+  batchList(params?: any) {
+    return this.post('api/v1/batch/getlist', params)
       .then(res => res);
   }
 
